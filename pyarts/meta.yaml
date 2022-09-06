@@ -57,7 +57,7 @@ requirements:
     - libopenblas
     - matplotlib
     - netcdf4
-    - numpy
+    - numpy >=1.20
     - scipy
     - xarray
     - zlib
