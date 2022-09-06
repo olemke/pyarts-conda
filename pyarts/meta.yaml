@@ -14,7 +14,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -50,11 +50,13 @@ requirements:
     - xarray
     - zlib
   run:
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
     - python
     - glew
     - glfw
     - libopenblas
     - matplotlib
+    - netcdf4
     - numpy
     - scipy
     - xarray
