@@ -1,0 +1,4 @@
+name: pyarts-build
+dependencies:
+  - boa
+  - anaconda-client

@@ -1,0 +1,28 @@
+name: Build conda packages
+
+on: [push]
+
+jobs:
+  build:
+    name: pyarts-build
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.9
+          mamba-version: "*"
+          channels: conda-forge
+          channel-priority: true
+          activate-environment: pyarts-build
+          environment-file: etc/environment-pyarts-build.yml
+      - shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+          conda config --show-sources
+          conda config --show
+          printenv | sort
+      - shell: bash -l {0}
+        run: mamba install jupyterlab
+
