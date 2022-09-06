@@ -12,10 +12,7 @@ cmake ${CMAKE_ARGS} -DCMAKE_PREFIX_PATH=${PREFIX} -DPython3_EXECUTABLE=${PREFIX}
 # during build time (gen_auto_py) can find libGL
 # export LD_LIBRARY_PATH=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib
 
-cmake --build . -j8 --target pyarts -v
-
-#make -j8 pyarts
-#make -j${CPU_COUNT} pyarts
+cmake --build . -j${CPU_COUNT} --target pyarts -v
 
 cd python
 python3 -m pip install .
