@@ -4,8 +4,13 @@ on: [push]
 
 jobs:
   build:
-    name: pyarts-build
-    runs-on: "ubuntu-latest"
+    name: Build (${{ matrix.pyversion }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-latest"]
+        pyversion: ["3.9", "3.10"]
     steps:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
@@ -24,4 +29,8 @@ jobs:
           conda config --show
           printenv | sort
       - shell: bash -l {0}
-        run: conda mambabuild --no-anaconda-upload --python=3.10 pyarts
+        run: conda mambabuild --no-anaconda-upload --numpy=1.20 --python=${{ matrix.pyversion }} pyarts
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pyarts-conda-package-${{ runner.os }}-${{ matrix.pyversion }}
+          path: /usr/share/miniconda/envs/pyarts-build/conda-bld/*/pyarts-*.tar.bz2
