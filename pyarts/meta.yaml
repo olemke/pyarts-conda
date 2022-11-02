@@ -7,10 +7,10 @@ package:
   version: {{ version }}
 
 source:
-  # url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  # sha256: e838680fa5e4e3fc9beae3f48b657ab7f6300dd2701bbf5e4c58d264edae64ab
-  git_url: {{ dev_url }}.git
-  git_depth: 1
+  url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 1d970ddb15a10e47ad59ead40aca8a0fe97c40667e054caa546a47c6a5750df3
+  # git_url: {{ dev_url }}.git
+  # git_depth: 1
 
 build:
   skip: True  # [win]
