@@ -34,9 +34,9 @@ jobs:
         if: runner.os == 'Linux'
         with:
           name: pyarts-conda-package-${{ runner.os }}-py${{ matrix.pyversion }}
-          path: /usr/share/miniconda/envs/pyarts-build/conda-bld/*/pyarts-*.tar.bz2
+          path: /usr/share/miniconda3/envs/pyarts-build/conda-bld/*/pyarts-*.tar.bz2
       - uses: actions/upload-artifact@v3
         if: runner.os == 'macOS'
         with:
           name: pyarts-conda-package-${{ runner.os }}-py${{ matrix.pyversion }}
-          path: /usr/local/miniconda/envs/pyarts-build/conda-bld/*/pyarts-*.tar.bz2
+          path: /Users/runner/miniconda3/envs/pyarts-build/conda-bld/*/pyarts-*.tar.bz2
