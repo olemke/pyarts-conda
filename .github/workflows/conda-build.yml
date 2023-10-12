@@ -16,7 +16,6 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           miniforge-version: latest
-          miniforge-variant: Mambaforge
           channels: conda-forge
           channel-priority: true
           activate-environment: pyarts-build
