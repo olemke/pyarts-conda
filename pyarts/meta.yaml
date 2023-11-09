@@ -1,5 +1,5 @@
 {% set name = "pyarts" %}
-{% set version = "2.5.11git0" %}
+{% set version = "2.5.11git1" %}
 {% set dev_url = "https://github.com/atmtools/arts" %}
 
 package:
