@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["ubuntu-latest", "macos-latest"]
+        os: ["ubuntu-latest", "macos-latest", "macos-14"]
         pyversion: ["3.9", "3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
