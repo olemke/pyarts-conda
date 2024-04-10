@@ -40,6 +40,7 @@ requirements:
     - matplotlib
     - netcdf4
     - pip
+    - pybind11
     - pytest
     - pytest-runner
     - scipy
