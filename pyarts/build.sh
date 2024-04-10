@@ -15,4 +15,4 @@ cmake ${CMAKE_ARGS} -DCMAKE_PREFIX_PATH=${PREFIX} -DPython3_EXECUTABLE=${PREFIX}
 cmake --build . -j${CPU_COUNT} --target pyarts
 
 cd python
-python3 -m pip install .
+${PREFIX}/bin/python3 -m pip install .
