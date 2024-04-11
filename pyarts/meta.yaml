@@ -13,7 +13,6 @@ source:
   git_depth: 1
 
 build:
-  skip: True  # [win]
   number: 0
 
 requirements:
@@ -21,8 +20,8 @@ requirements:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('cxx') }}  # [unix]
+    - {{ compiler('fortran') }}  # [unix]
     - cmake >=3.20
     - ninja
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
