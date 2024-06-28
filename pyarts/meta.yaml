@@ -11,7 +11,6 @@ source:
   # sha256: 8ae831678b282c96a19f4fbc1f387b1fd6e6b7289485121c1b904e2148ad9da7
   git_url: {{ dev_url }}.git
   git_rev: nanobind
-  git_depth: 1
 
 build:
   number: 0
