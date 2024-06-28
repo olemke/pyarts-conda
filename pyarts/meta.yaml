@@ -1,6 +1,6 @@
 {% set name = "pyarts" %}
 {% set version = "3.0.0.dev0" %}
-{% set dev_url = "https://github.com/atmtools/arts" %}
+{% set dev_url = "https://github.com/olemke/arts" %}
 
 package:
   name: {{ name|lower }}
@@ -10,6 +10,7 @@ source:
   # url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
   # sha256: 8ae831678b282c96a19f4fbc1f387b1fd6e6b7289485121c1b904e2148ad9da7
   git_url: {{ dev_url }}.git
+  git_rev: nanobind
   git_depth: 1
 
 build:
