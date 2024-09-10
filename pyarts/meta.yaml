@@ -28,7 +28,6 @@ requirements:
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
   host:
     - python {{ python }}
-    - build
     - docutils
     - glew
     - glfw
@@ -42,6 +41,7 @@ requirements:
     - pip
     - pytest
     - pytest-runner
+    - python-build
     - scipy
     - xarray
     - zlib
