@@ -1,5 +1,5 @@
 {% set name = "pyarts" %}
-{% set version = "2.6.2" %}
+{% set version = "3.0.0.dev0" %}
 {% set dev_url = "https://github.com/atmtools/arts" %}
 
 package:
@@ -7,13 +7,12 @@ package:
   version: {{ version }}
 
 source:
-  url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 8ae831678b282c96a19f4fbc1f387b1fd6e6b7289485121c1b904e2148ad9da7
-  # git_url: {{ dev_url }}.git
-  # git_depth: 1
+  # url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
+  # sha256: 8ae831678b282c96a19f4fbc1f387b1fd6e6b7289485121c1b904e2148ad9da7
+  git_url: {{ dev_url }}.git
+  git_depth: 1
 
 build:
-  skip: True  # [win]
   number: 0
 
 requirements:
@@ -21,40 +20,44 @@ requirements:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
+    - {{ compiler('cxx') }}  # [unix]
+    - {{ compiler('fortran') }}  # [unix]
     - cmake >=3.20
-    - make                               # [unix]
+    - ninja
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
   host:
     - python {{ python }}
-    - build
+    - boost
     - docutils
-    - glew
-    - glfw
+    - eigen
     - lark-parser
     - libgomp         # [linux]
-    - libopenblas     # [linux]
-    - libmicrohttpd
     - llvm-openmp     # [osx]
     - matplotlib
+    - nanobind
     - netcdf4
+    - openblas        # [linux or win]
     - pip
     - pytest
     - pytest-runner
+    - python-build
+    - requests
     - scipy
+    - typing_extensions
     - xarray
     - zlib
   run:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
     - python
-    - glew
-    - glfw
-    - libmicrohttpd
+    - lark-parser
+    - libgomp         # [linux]
     - matplotlib
     - netcdf4
-    - {{ pin_compatible('numpy', lower_bound='1.22', upper_bound='3.0') }}
+    - {{ pin_compatible('numpy', lower_bound='2.0', upper_bound='3.0') }}
+    - openblas        # [linux or win]
+    - requests
     - scipy
+    - typing_extensions
     - xarray
     - zlib
 
