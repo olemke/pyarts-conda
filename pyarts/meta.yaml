@@ -1,5 +1,5 @@
 {% set name = "pyarts" %}
-{% set version = "2.6.6" %}
+{% set version = "2.6.8" %}
 {% set dev_url = "https://github.com/atmtools/arts" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a69bcaf32f6cf0388c0e14cab773f6221ac6bacf384d3b13fae24b430ec44869
+  sha256: f412c7d3c6b42dddcdbb250a76064924a4d90d675c6083e49566abed2d6da755
   # git_url: {{ dev_url }}.git
   # git_rev: v2.6.x
 
@@ -74,7 +74,7 @@ about:
     - LICENSE.txt
     - vendor-licenses/
   # The doc_url and dev_url are optional.
-  doc_url: https://atmtools.github.io/arts-docs-master/
+  doc_url: https://atmtools.github.io/arts-docs-2.6/
   dev_url: https://github.com/atmtools/arts
 
 extra:
