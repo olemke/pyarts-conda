@@ -37,6 +37,7 @@ requirements:
     - matplotlib
     - nanobind
     - netcdf4
+    - numpy>=2
     - openblas=*=*openmp*        # [linux or win]
     - pip
     - pytest
