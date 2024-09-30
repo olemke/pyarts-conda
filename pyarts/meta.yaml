@@ -30,6 +30,7 @@ requirements:
     - boost
     - docutils
     - eigen
+    - fftw
     - lark-parser
     - libgomp         # [linux]
     - llvm-openmp     # [osx]
@@ -49,6 +50,7 @@ requirements:
   run:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
     - python
+    - fftw
     - lark-parser
     - libgomp         # [linux]
     - matplotlib
