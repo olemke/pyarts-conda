@@ -16,8 +16,6 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           miniforge-version: latest
-          channels: conda-forge
-          channel-priority: true
           activate-environment: pyarts-build
           environment-file: etc/environment-pyarts-build.yml
       - shell: bash -l {0}
