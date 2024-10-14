@@ -33,12 +33,12 @@ requirements:
     - glfw
     - lark-parser
     - libgomp         # [linux]
-    - libblas=*=*openblas*  # [linux]
     - libmicrohttpd
     - llvm-openmp     # [osx]
     - matplotlib
     - nomkl  # [linux]
     - netcdf4
+    - openblas=*=*openmp*  # [linux]
     - pip
     - pytest
     - pytest-runner
@@ -52,7 +52,7 @@ requirements:
     - glew
     - glfw
     - libmicrohttpd
-    - libopenblas  # [linux]
+    - libopenblas=*=*openmp*  # [linux]
     - matplotlib
     - netcdf4
     - {{ pin_compatible('numpy', lower_bound='1.22', upper_bound='3.0') }}
