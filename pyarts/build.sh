@@ -2,7 +2,7 @@ mkdir -p build
 cd build
 
 if [[ $(uname) == "Darwin" ]]; then
-    export MACOSX_DEPLOYMENT_TARGET=13.3
+    export MACOSX_DEPLOYMENT_TARGET=13.5
     export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
 fi
 
