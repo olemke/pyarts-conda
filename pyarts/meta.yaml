@@ -47,9 +47,10 @@ requirements:
     - python-build
     - requests
     - scipy
+    - setuptools
     - tqdm
     - typing_extensions
-    - xarray
+    - xarray>=2024
     - zlib
   run:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
@@ -66,7 +67,7 @@ requirements:
     - scipy
     - tqdm
     - typing_extensions
-    - xarray
+    - xarray>=2024
     - zlib
 
 
