@@ -1,5 +1,5 @@
 {% set name = "pyarts" %}
-{% set version = "3.0.0dev2" %}
+{% set version = "3.0.0dev4" %}
 {% set dev_url = "https://github.com/atmtools/arts" %}
 
 package:
@@ -8,9 +8,10 @@ package:
 
 source:
   url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 225986f69c1e04ffd79f8b5d5920520b24cb13a2eec477b28059f55445c6e79a
+  sha256: e43db3520a54cf33ea547498f1861107fd4de140c41e0b17d96214383f65ca3a
   # git_url: {{ dev_url }}.git
-  git_depth: 1
+  # git_rev: bump-version
+  # git_depth: 1
 
 build:
   number: 0
@@ -47,9 +48,10 @@ requirements:
     - python-build
     - requests
     - scipy
+    - setuptools
     - tqdm
     - typing_extensions
-    - xarray
+    - xarray>=2024
     - zlib
   run:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
@@ -66,7 +68,7 @@ requirements:
     - scipy
     - tqdm
     - typing_extensions
-    - xarray
+    - xarray>=2024
     - zlib
 
 
