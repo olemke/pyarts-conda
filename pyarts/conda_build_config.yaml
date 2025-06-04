@@ -3,6 +3,10 @@ python:
   - 3.10
   - 3.11
   - 3.12
+c_compiler_version:  # [linux]
+  - 14               # [linux]
+cxx_compiler_version:  # [linux]
+  - 14                 # [linux]
 MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
   - "11.0"                 # [osx and x86_64]
 MACOSX_SDK_VERSION:        # [osx and x86_64]
