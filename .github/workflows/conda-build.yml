@@ -17,6 +17,7 @@ jobs:
         with:
           miniforge-version: latest
           channels: conda-forge
+          conda-remove-defaults: "true"
           channel-priority: true
           activate-environment: pyarts-build
           environment-file: etc/environment-pyarts-build.yml
