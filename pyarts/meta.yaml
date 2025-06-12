@@ -20,8 +20,9 @@ requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}  # [unix]
+    - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [unix]
     - cmake >=3.20
     - ninja
@@ -53,7 +54,6 @@ requirements:
     - xarray>=2024
     - zlib
   run:
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
     - python
     - fftw
     - lark-parser
