@@ -25,7 +25,6 @@ requirements:
     - {{ compiler('fortran') }}  # [unix]
     - cmake >=3.20
     - ninja
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
   host:
     - python {{ python }}
     - boost
