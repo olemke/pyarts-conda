@@ -25,13 +25,13 @@ requirements:
     - {{ compiler('fortran') }}
     - cmake >=3.20
     - make                               # [unix]
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
   host:
     - python {{ python }}
     - docutils
     - glew
     - glfw
     - lark-parser
+    - libgl-devel     # [linux]
     - libgomp         # [linux]
     - libmicrohttpd
     - llvm-openmp     # [osx]
