@@ -35,7 +35,7 @@ requirements:
     - libgomp         # [linux]
     - llvm-openmp     # [osx]
     - matplotlib
-    - nanobind
+    - nanobind <2.5.0
     - netcdf4
     - nomkl  # [linux]
     - numpy>=2
