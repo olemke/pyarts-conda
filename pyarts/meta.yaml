@@ -1,5 +1,5 @@
 {% set name = "pyarts" %}
-{% set version = "2.6.14" %}
+{% set version = "2.6.15" %}
 {% set dev_url = "https://github.com/atmtools/arts" %}
 
 package:
@@ -7,10 +7,10 @@ package:
   version: {{ version }}
 
 source:
-  url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 511ea89ed24e95cceb74e473a29de5b0f922f47898987a767c6789078dcb803b
-  # git_url: {{ dev_url }}.git
-  # git_rev: v2.6.x
+  # url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
+  # sha256: 511ea89ed24e95cceb74e473a29de5b0f922f47898987a767c6789078dcb803b
+  git_url: {{ dev_url }}.git
+  git_rev: v2.6.x
 
 build:
   skip: True  # [win]
