@@ -20,6 +20,7 @@ requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
@@ -48,7 +49,6 @@ requirements:
     - xarray
     - zlib
   run:
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
     - python
     - glew
     - glfw
