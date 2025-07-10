@@ -46,6 +46,7 @@ requirements:
     - python-build
     - scipy
     - setuptools
+    - tqdm
     - xarray
     - zlib
   run:
@@ -58,6 +59,7 @@ requirements:
     - netcdf4
     - {{ pin_compatible('numpy', lower_bound='1.22', upper_bound='3.0') }}
     - scipy
+    - tqdm
     - xarray
     - zlib
 
