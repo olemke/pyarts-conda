@@ -1,5 +1,5 @@
 {% set name = "pyarts" %}
-{% set version = "2.6.14" %}
+{% set version = "2.6.16" %}
 {% set dev_url = "https://github.com/atmtools/arts" %}
 
 package:
@@ -8,9 +8,9 @@ package:
 
 source:
   url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 511ea89ed24e95cceb74e473a29de5b0f922f47898987a767c6789078dcb803b
+  sha256: 411a70dd52a4a8d610a4b54a8ead446077e90586c01b7ae08f3ff0b3243016e5
   # git_url: {{ dev_url }}.git
-  # git_rev: v2.6.x
+  # git_rev: arts26-bump-version
 
 build:
   skip: True  # [win]
@@ -20,18 +20,19 @@ requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - cmake >=3.20
     - make                               # [unix]
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
   host:
     - python {{ python }}
     - docutils
     - glew
     - glfw
     - lark-parser
+    - libgl-devel     # [linux]
     - libgomp         # [linux]
     - libmicrohttpd
     - llvm-openmp     # [osx]
@@ -45,10 +46,10 @@ requirements:
     - python-build
     - scipy
     - setuptools
+    - tqdm
     - xarray
     - zlib
   run:
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.15") }}  # [osx and x86_64]
     - python
     - glew
     - glfw
@@ -58,6 +59,7 @@ requirements:
     - netcdf4
     - {{ pin_compatible('numpy', lower_bound='1.22', upper_bound='3.0') }}
     - scipy
+    - tqdm
     - xarray
     - zlib
 
