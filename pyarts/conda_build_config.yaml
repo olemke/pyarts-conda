@@ -3,18 +3,17 @@ python:
   - 3.11
   - 3.12
   - 3.13
-c_compiler:    # [win]
-  - vs2022       # [win]
-cxx_compiler:  # [win]
-  - vs2022       # [win]
-c_compiler_version:  # [osx]
-  - 19               # [osx]
-cxx_compiler_version:  # [osx]
-  - 19                 # [osx]
-c_stdlib:  # [win]
-  - vs     # [win]
-c_stdlib_version:              # [(osx and x86_64) or win]
-  - 2022                       # [win]
-  - 13.5                       # [osx and x86_64]
-MACOSX_SDK_VERSION:        # [osx and x86_64]
-  - "13.5"                 # [osx and x86_64]
+c_stdlib:
+  - sysroot  # [linux]
+  - macosx_deployment_target  # [osx]
+  - vs2022  # [win]
+c_compiler_version:
+  - 15               # [linux]
+  - 21               # [osx]
+cxx_compiler_version:
+  - 15                 # [linux]
+  - 21                 # [osx]
+c_stdlib_version:  # [osx]
+  - "11.0"         # [osx]
+MACOSX_SDK_VERSION:        # [osx]
+  - "11.0"                 # [osx]
