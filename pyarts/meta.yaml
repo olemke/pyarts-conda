@@ -31,12 +31,14 @@ requirements:
     - boost
     - docutils
     - eigen
+    - fast_float
     - fftw
     - lark-parser
     - libgomp         # [linux]
     - llvm-openmp     # [osx]
+    - llvm-openmp<21  # [windows]
     - matplotlib
-    - nanobind <2.5.0
+    - nanobind<2.5.0
     - netcdf4
     - nomkl  # [linux]
     - numpy>=2
