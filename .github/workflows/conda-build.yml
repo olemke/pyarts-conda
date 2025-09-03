@@ -34,14 +34,14 @@ jobs:
         if: runner.os == 'Linux'
         with:
           name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
-          path: /home/runner/miniconda3/envs/pyarts-build/conda-bld/*/pyarts-*.tar.bz2
+          path: /home/runner/miniconda3/envs/pyarts-build/conda-bld/*/pyarts3-*.tar.bz2
       - uses: actions/upload-artifact@v4
         if: runner.os == 'macOS'
         with:
           name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
-          path: /Users/runner/miniconda3/envs/pyarts-build/conda-bld/*/pyarts-*.tar.bz2
+          path: /Users/runner/miniconda3/envs/pyarts-build/conda-bld/*/pyarts3-*.tar.bz2
       - uses: actions/upload-artifact@v4
         if: runner.os == 'Windows'
         with:
           name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
-          path: C:/Users/runneradmin/miniconda3/envs/pyarts-build/conda-bld/win-64/pyarts-*.tar.bz2
+          path: C:/Users/runneradmin/miniconda3/envs/pyarts-build/conda-bld/win-64/pyarts3-*.tar.bz2
