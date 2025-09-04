@@ -10,11 +10,11 @@ source:
   # url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
   # sha256: a19de62763d761fd8d41a6e89fee87deafdface681b4b06401ec67092ebd78da
   git_url: {{ dev_url }}.git
-  # git_rev: bump-version
+  # git_rev: main
   # git_depth: 1
 
 build:
-  number: 1
+  number: 3
 
 requirements:
   build:
