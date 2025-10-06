@@ -33,18 +33,18 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: runner.os == 'Linux'
         with:
-          name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
-          path: /home/runner/miniconda3/envs/pyarts-build/conda-bld/*/pyarts3-*.tar.bz2
+          name: pyarts3-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
+          path: /home/runner/miniconda3/envs/pyarts-build/conda-bld/**/pyarts3-*.tar.bz2
       - uses: actions/upload-artifact@v4
         if: runner.os == 'macOS'
         with:
-          name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
-          path: /Users/runner/miniconda3/envs/pyarts-build/conda-bld/*/pyarts3-*.tar.bz2
+          name: pyarts3-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
+          path: /Users/runner/miniconda3/envs/pyarts-build/conda-bld/**/pyarts3-*.tar.bz2
       - uses: actions/upload-artifact@v4
         if: runner.os == 'Windows'
         with:
-          name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
-          path: C:/Users/runneradmin/miniconda3/envs/pyarts-build/conda-bld/win-64/pyarts3-*.tar.bz2
+          name: pyarts3-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
+          path: C:/Users/runneradmin/miniconda3/envs/pyarts-build/conda-bld/**/pyarts3-*.tar.bz2
   merge:
       runs-on: ubuntu-latest
       needs: build
@@ -52,6 +52,6 @@ jobs:
         - name: Merge Artifacts
           uses: actions/upload-artifact/merge@v4
           with:
-            name: pyarts-conda-packages
+            name: pyarts3-conda-packages
             retention-days: 7
             delete-merged: true
