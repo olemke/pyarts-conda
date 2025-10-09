@@ -30,7 +30,7 @@ requirements:
     - python {{ python }}
     - docutils
     - glew
-    - glfw
+    - glfw<3.5
     - lark-parser
     - libgl-devel     # [linux]
     - libgomp         # [linux]
@@ -53,7 +53,7 @@ requirements:
   run:
     - python
     - glew
-    - glfw
+    - glfw<3.5
     - libmicrohttpd
     - libopenblas=*=*openmp*  # [linux]
     - matplotlib
