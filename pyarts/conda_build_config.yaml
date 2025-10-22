@@ -13,7 +13,8 @@ c_compiler_version:
 cxx_compiler_version:
   - 15                 # [linux]
   - 21                 # [osx]
-c_stdlib_version:  # [osx]
+c_stdlib_version:  # [linux or osx]
+  - "2.17"         # [linux]
   - "11.0"         # [osx]
 MACOSX_SDK_VERSION:        # [osx]
   - "11.0"                 # [osx]
