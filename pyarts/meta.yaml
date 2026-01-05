@@ -14,7 +14,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -29,12 +29,12 @@ requirements:
   host:
     - python {{ python }}
     - docutils
-    - glew
+    - glew=2.3
     - glfw<3.5
     - lark-parser
     - libgl-devel     # [linux]
     - libgomp         # [linux]
-    - libmicrohttpd
+    - libmicrohttpd=1.0.2
     - llvm-openmp     # [osx]
     - matplotlib
     - nomkl  # [linux]
@@ -52,9 +52,9 @@ requirements:
     - zlib
   run:
     - python
-    - glew
+    - glew=2.3
     - glfw<3.5
-    - libmicrohttpd
+    - libmicrohttpd=1.0.2
     - libopenblas=*=*openmp*  # [linux]
     - matplotlib
     - netcdf4
