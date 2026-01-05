@@ -34,7 +34,7 @@ requirements:
     - lark-parser
     - libgl-devel     # [linux]
     - libgomp         # [linux]
-    - libmicrohttpd
+    - libmicrohttpd=1.0.2
     - llvm-openmp     # [osx]
     - matplotlib
     - nomkl  # [linux]
@@ -54,7 +54,7 @@ requirements:
     - python
     - glew=2.3
     - glfw<3.5
-    - libmicrohttpd
+    - libmicrohttpd=1.0.2
     - libopenblas=*=*openmp*  # [linux]
     - matplotlib
     - netcdf4
