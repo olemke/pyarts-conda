@@ -29,7 +29,7 @@ requirements:
   host:
     - python {{ python }}
     - docutils
-    - glew
+    - glew=2.3
     - glfw<3.5
     - lark-parser
     - libgl-devel     # [linux]
@@ -52,7 +52,7 @@ requirements:
     - zlib
   run:
     - python
-    - glew
+    - glew=2.3
     - glfw<3.5
     - libmicrohttpd
     - libopenblas=*=*openmp*  # [linux]
