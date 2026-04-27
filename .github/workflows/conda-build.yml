@@ -12,8 +12,8 @@ jobs:
         os: ["ubuntu-latest", "macos-15-intel", "macos-latest"]
         pyversion: ["3.10", "3.11", "3.12", "3.13", "3.14"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: conda-incubator/setup-miniconda@v3
+      - uses: actions/checkout@v6
+      - uses: conda-incubator/setup-miniconda@v4
         with:
           miniforge-version: latest
           channels: conda-forge
@@ -30,12 +30,12 @@ jobs:
           printenv | sort
       - shell: bash -l {0}
         run: conda mambabuild --no-anaconda-upload --python=${{ matrix.pyversion }} pyarts
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: runner.os == 'Linux'
         with:
           name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
           path: /home/runner/miniconda3/envs/pyarts-build/conda-bld/**/pyarts-*.tar.bz2
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: runner.os == 'macOS'
         with:
           name: pyarts-conda-package-${{ matrix.os }}-py${{ matrix.pyversion }}
@@ -45,7 +45,7 @@ jobs:
       needs: build
       steps:
         - name: Merge Artifacts
-          uses: actions/upload-artifact/merge@v4
+          uses: actions/upload-artifact/merge@v7
           with:
             name: pyarts-conda-packages
             retention-days: 7
