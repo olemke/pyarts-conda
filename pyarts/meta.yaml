@@ -28,12 +28,12 @@ requirements:
     - ninja
   host:
     - python {{ python }}
-    - boost
     - docutils
     - eigen
     - fast_float
     - fftw
     - lark-parser
+    - libboost-devel
     - libgomp         # [linux]
     - llvm-openmp     # [osx]
     - llvm-openmp<21  # [windows]
