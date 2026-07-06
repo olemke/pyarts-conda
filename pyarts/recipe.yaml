@@ -1,49 +1,58 @@
-{% set name = "pyarts3" %}
-{% set version = "3.0.0dev8" %}
-{% set dev_url = "https://github.com/atmtools/arts" %}
+context:
+  name: pyarts3
+  version: 3.0.0dev9
+  git_url: https://github.com/atmtools/arts
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 4f8d5efa6a222d61f8fedfb4332a71a68db6886c30f014b7bce3c31a1e15297e
-  # git_url: {{ dev_url }}.git
+  # url: {{ git_url }}/archive/refs/tags/v{{ version }}.tar.gz
+  # sha256: 4f8d5efa6a222d61f8fedfb4332a71a68db6886c30f014b7bce3c31a1e15297e
+  git: ${{ git_url }}.git
   # git_rev: bump-version
-  # git_depth: 1
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
-    - {{ stdlib('c') }}
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}  # [unix]
+    - if: linux
+      then:
+        - ${{ stdlib('c') }}
+    - if: osx
+      then:
+        - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
     - cmake >=3.20
     - ninja
   host:
-    - python {{ python }}
+    - python
     - docutils
     - eigen
     - fast_float
     - fftw
     - lark-parser
     - libboost-devel
-    - libgomp         # [linux]
-    - llvm-openmp     # [osx]
-    - llvm-openmp<21  # [windows]
+    - if: linux
+      then:
+        - libgomp
+        - nomkl
+        - openblas * *openmp*
+    - if: osx
+      then:
+        - llvm-openmp
+    - if: win
+      then:
+        - openblas
     - matplotlib
-    - nanobind
+    - nanobind=2.13
     - netcdf4
-    - nomkl  # [linux]
     - numpy>=2
-    - openblas=*=*openmp*  # [linux]
-    - openblas             # [win]
     - pip
     - pytest
     - pytest-runner
@@ -59,11 +68,15 @@ requirements:
     - python
     - fftw
     - lark-parser
-    - libgomp         # [linux]
+    - if: linux
+      then:
+        - libgomp
+        - libopenblas * *openmp*
+    - if: win
+      then:
+        - libopenblas
     - matplotlib
-    - {{ pin_compatible('numpy', lower_bound='2.0', upper_bound='3.0') }}
-    - libopenblas=*=*openmp*  # [linux]
-    - libopenblas             # [win]
+    - ${{ pin_compatible('numpy', lower_bound='2.0', upper_bound='3.0') }}
     - requests
     - scipy
     - tqdm
@@ -73,7 +86,7 @@ requirements:
 
 
 about:
-  home: https://github.com/atmtools/arts
+  homepage: https://github.com/atmtools/arts
   summary: 'The Atmospheric Radiative Transfer Simulator'
   description: |
       Python interface to ARTS
@@ -87,8 +100,8 @@ about:
     - LICENSE.txt
     - vendor-licenses/
   # The doc_url and dev_url are optional.
-  doc_url: https://atmtools.github.io/arts-docs-master/
-  dev_url: https://github.com/atmtools/arts
+  documentation: https://atmtools.github.io/arts-docs-master/
+  repository: https://github.com/atmtools/arts
 
 extra:
   recipe-maintainers:
