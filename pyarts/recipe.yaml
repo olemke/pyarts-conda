@@ -1,6 +1,6 @@
 context:
   name: pyarts3
-  version: 3.0.0dev9
+  version: 3.0.0dev10
   git_url: https://github.com/atmtools/arts
 
 package:
@@ -8,9 +8,9 @@ package:
   version: ${{ version }}
 
 source:
-  # url: {{ git_url }}/archive/refs/tags/v{{ version }}.tar.gz
-  # sha256: 4f8d5efa6a222d61f8fedfb4332a71a68db6886c30f014b7bce3c31a1e15297e
-  git: ${{ git_url }}.git
+  url: ${{ git_url }}/archive/refs/tags/v${{ version }}.zip
+  sha256: 17639dc59c99e24113398e7c834f834885fd9c60e4eaf9918f8646869ae17ecd
+  # git: ${{ git_url }}.git
   # git_rev: bump-version
 
 build:
