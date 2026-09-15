@@ -1,4 +1,5 @@
 name: pyarts-build
+channels:
+  - conda-forge
 dependencies:
-  - boa
-  - anaconda-client
+  - rattler-build
