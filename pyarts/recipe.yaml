@@ -1,46 +1,53 @@
-{% set name = "pyarts" %}
-{% set version = "2.6.19" %}
-{% set dev_url = "https://github.com/atmtools/arts" %}
+context:
+  name: pyarts
+  version: 2.6.19
+  git_url: https://github.com/atmtools/arts
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  # url: {{ dev_url }}/archive/refs/tags/v{{ version }}.tar.gz
+  # url: ${{ git_url }}/archive/refs/tags/v${{ version }}.tar.gz
   # sha256: cccf67ac2c061f73d3b1ddbc02c782aa8d0cf1c1d9f6e61d5491d88b4845eee6
-  git_url: {{ dev_url }}.git
-  git_rev: v2.6.x
+  git: ${{ git_url }}.git
+  rev: v2.6.x
 
 build:
-  skip: True  # [win]
-  number: 1
+  number: 2
 
 requirements:
   build:
     # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
     # Compilers are named 'c', 'cxx' and 'fortran'.
-    - {{ stdlib('c') }}
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('fortran') }}
     - cmake >=3.20
-    - make                               # [unix]
+    - if: unix
+      then:
+        - make
   host:
-    - python {{ python }}
+    - python
     - docutils
     - glew=2.3
     - glfw<3.5
     - lark-parser
-    - libgl-devel     # [linux]
-    - libgomp         # [linux]
+    - if: linux
+      then:
+      - libgl-devel
+      - libgomp
+      - nomkl
+      - openblas * *openmp*
     - libmicrohttpd=1.0.2
-    - llvm-openmp     # [osx]
+    - if: osx
+      then:
+      - llvm-openmp
     - matplotlib
-    - nomkl  # [linux]
     - netcdf4
     - libnetcdf=4.9.3
-    - openblas=*=*openmp*  # [linux]
+    - numpy<3
     - pip
     - pytest
     - pytest-runner
@@ -55,11 +62,13 @@ requirements:
     - glew=2.3
     - glfw<3.5
     - libmicrohttpd=1.0.2
-    - libopenblas=*=*openmp*  # [linux]
+    - if: linux
+      then:
+      - libopenblas * *openmp*
     - matplotlib
     - netcdf4
     - libnetcdf=4.9.3
-    - {{ pin_compatible('numpy', lower_bound='1.22', upper_bound='3.0') }}
+    - ${{ pin_compatible('numpy', lower_bound='1.22', upper_bound='3.0.0') }}
     - scipy
     - tqdm
     - xarray
@@ -67,7 +76,7 @@ requirements:
 
 
 about:
-  home: https://github.com/atmtools/arts
+  homepage: https://github.com/atmtools/arts
   summary: 'The Atmospheric Radiative Transfer Simulator'
   description: |
       Python interface to ARTS
@@ -81,8 +90,8 @@ about:
     - LICENSE.txt
     - vendor-licenses/
   # The doc_url and dev_url are optional.
-  doc_url: https://atmtools.github.io/arts-docs-2.6/
-  dev_url: https://github.com/atmtools/arts
+  documentation: https://atmtools.github.io/arts-docs-2.6/
+  repository: https://github.com/atmtools/arts
 
 extra:
   recipe-maintainers:
