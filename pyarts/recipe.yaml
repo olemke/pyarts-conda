@@ -1,6 +1,6 @@
 context:
   name: pyarts
-  version: 2.6.19
+  version: 2.6.20
   git_url: https://github.com/atmtools/arts
 
 package:
@@ -8,13 +8,13 @@ package:
   version: ${{ version }}
 
 source:
-  # url: ${{ git_url }}/archive/refs/tags/v${{ version }}.tar.gz
-  # sha256: cccf67ac2c061f73d3b1ddbc02c782aa8d0cf1c1d9f6e61d5491d88b4845eee6
-  git: ${{ git_url }}.git
-  rev: v2.6.x
+  url: ${{ git_url }}/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: c5fdb317aa5b7d7f74eb77f0d54063bc627a4b7137b359bcd0e65f4357d88bfd
+  # git: ${{ git_url }}.git
+  # rev: v2.6.x
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
