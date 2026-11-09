@@ -10,6 +10,8 @@ package:
 source:
   url: ${{ git_url }}/archive/refs/tags/v${{ version }}.zip
   sha256: 17639dc59c99e24113398e7c834f834885fd9c60e4eaf9918f8646869ae17ecd
+  patches:
+    - ../patches/0001-chore-remove-lark-parser-dependency.patch
   # git: ${{ git_url }}.git
   # git_rev: bump-version
 
@@ -36,7 +38,6 @@ requirements:
     - eigen
     - fast_float
     - fftw
-    - lark-parser
     - libboost-devel
     - if: linux
       then:
@@ -67,7 +68,6 @@ requirements:
   run:
     - python
     - fftw
-    - lark-parser
     - if: linux
       then:
         - libgomp

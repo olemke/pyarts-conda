@@ -1,0 +1,88 @@
+From f5c546a0d32f0bca14c98062fb1e1a194a1f1a81 Mon Sep 17 00:00:00 2001
+From: Oliver Lemke <olemke@gmail.com>
+Date: Mon, 9 Nov 2026 14:11:44 +0100
+Subject: [PATCH] chore: remove lark-parser dependency
+
+The old controlfile parser that used lark was removed in
+662eb041e, leaving lark-parser as a stale requirement. Drop it
+from the CMake module check and all development conda
+environments.
+---
+ cmake/modules/CheckPythonModule.cmake | 2 --
+ environment-dev-linux-clang.yml       | 1 -
+ environment-dev-linux.yml             | 1 -
+ environment-dev-mac.yml               | 1 -
+ environment-dev-win.yml               | 1 -
+ 5 files changed, 6 deletions(-)
+
+diff --git a/cmake/modules/CheckPythonModule.cmake b/cmake/modules/CheckPythonModule.cmake
+index cf218b1e3..4e9fcdf3a 100644
+--- a/cmake/modules/CheckPythonModule.cmake
++++ b/cmake/modules/CheckPythonModule.cmake
+@@ -6,7 +6,6 @@ macro (CHECK_PYTHON_MODULES)
+   set(REQUIRED_MODULES
+     build
+     docutils
+-    lark.parse_tree_builder
+     matplotlib
+     netCDF4
+     numpy
+@@ -18,7 +17,6 @@ macro (CHECK_PYTHON_MODULES)
+   set(PYPI_NAMES
+     python-build
+     docutils
+-    lark-parser
+     matplotlib
+     netCDF4
+     numpy
+diff --git a/environment-dev-linux-clang.yml b/environment-dev-linux-clang.yml
+index 2a6c2cedf..4cc4891f7 100644
+--- a/environment-dev-linux-clang.yml
++++ b/environment-dev-linux-clang.yml
+@@ -16,7 +16,6 @@ dependencies:
+         - gmp
+         - gxx
+         - ipykernel
+-        - lark-parser
+         - libboost-devel
+         - libclang
+         - libcxx
+diff --git a/environment-dev-linux.yml b/environment-dev-linux.yml
+index d5e99840f..7cb450c98 100644
+--- a/environment-dev-linux.yml
++++ b/environment-dev-linux.yml
+@@ -14,7 +14,6 @@ dependencies:
+         - gmp
+         - gxx
+         - ipykernel
+-        - lark-parser
+         - libboost-devel
+         - make
+         - matplotlib<3.12
+diff --git a/environment-dev-mac.yml b/environment-dev-mac.yml
+index 5c47a400a..762b4d219 100644
+--- a/environment-dev-mac.yml
++++ b/environment-dev-mac.yml
+@@ -13,7 +13,6 @@ dependencies:
+         - fftw
+         - graphviz
+         - ipykernel
+-        - lark-parser
+         - ld64
+         - libboost-devel
+         - libclang
+diff --git a/environment-dev-win.yml b/environment-dev-win.yml
+index bd224ec0d..9f25286ec 100644
+--- a/environment-dev-win.yml
++++ b/environment-dev-win.yml
+@@ -6,7 +6,6 @@ dependencies:
+         - fast_float
+         - fftw
+         - ipykernel
+-        - lark-parser
+         - libboost-devel
+         - libcxx
+         - llvm-openmp < 21
+-- 
+2.56.0
+
