@@ -10,11 +10,13 @@ package:
 source:
   url: ${{ git_url }}/archive/refs/tags/v${{ version }}.tar.gz
   sha256: c5fdb317aa5b7d7f74eb77f0d54063bc627a4b7137b359bcd0e65f4357d88bfd
+  patches:
+    - ../patches/0001-chore-rename-lark-parser-package-to-lark.patch
   # git: ${{ git_url }}.git
   # rev: v2.6.x
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -33,7 +35,7 @@ requirements:
     - docutils
     - glew=2.3
     - glfw<3.5
-    - lark-parser
+    - lark
     - if: linux
       then:
       - libgl-devel

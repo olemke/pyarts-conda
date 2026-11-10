@@ -1,0 +1,85 @@
+From 35b8107e0460e334c61f1a21db25e7819b2176a5 Mon Sep 17 00:00:00 2001
+From: Oliver Lemke <olemke@gmail.com>
+Date: Tue, 10 Nov 2026 07:42:14 +0100
+Subject: [PATCH] chore: rename lark-parser package to lark
+
+The upstream Python package was renamed from lark-parser to lark.
+Update all dependency declarations and references accordingly.
+
+The import path (lark.parse_tree_builder) is unchanged.
+---
+ README.md                             | 2 +-
+ actions/pypi/build_arts.sh            | 2 +-
+ cmake/modules/CheckPythonModule.cmake | 2 +-
+ environment-dev-linux.yml             | 2 +-
+ environment-dev-mac.yml               | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/README.md b/README.md
+index cb21e82e8..aa35b88cc 100644
+--- a/README.md
++++ b/README.md
+@@ -33,7 +33,7 @@ Build Prerequisites (provided by Miniforge3):
+ - Python3 (3.9, 3.10, 3.11, 3.12)
+   - required modules:
+     docutils
+-    lark-parser
++    lark
+     matplotlib
+     netCDF4
+     numpy
+diff --git a/actions/pypi/build_arts.sh b/actions/pypi/build_arts.sh
+index 6ee601e07..60f10e13b 100755
+--- a/actions/pypi/build_arts.sh
++++ b/actions/pypi/build_arts.sh
+@@ -10,7 +10,7 @@ fi
+ export PATH=$PYTHONDIR/bin:$PATH
+ 
+ python3 -m pip install --upgrade pip
+-python3 -m pip install --upgrade setuptools build wheel auditwheel twine docutils lark-parser matplotlib netCDF4 numpy pytest scipy xarray cmake
++python3 -m pip install --upgrade setuptools build wheel auditwheel twine docutils lark matplotlib netCDF4 numpy pytest scipy xarray cmake
+ 
+ # Get arts source
+ mkdir -p arts && cd arts && git init .
+diff --git a/cmake/modules/CheckPythonModule.cmake b/cmake/modules/CheckPythonModule.cmake
+index ca4bab592..597016793 100644
+--- a/cmake/modules/CheckPythonModule.cmake
++++ b/cmake/modules/CheckPythonModule.cmake
+@@ -18,7 +18,7 @@ macro (CHECK_PYTHON_MODULES)
+   set(PYPI_NAMES
+     python-build
+     docutils
+-    lark-parser
++    lark
+     matplotlib
+     netCDF4
+     numpy
+diff --git a/environment-dev-linux.yml b/environment-dev-linux.yml
+index a2de14d9e..d8bbe60c4 100644
+--- a/environment-dev-linux.yml
++++ b/environment-dev-linux.yml
+@@ -12,7 +12,7 @@ dependencies:
+         - glfw
+         - gmp
+         - gxx
+-        - lark-parser
++        - lark
+         - libclang
+         - libcxx
+         - libmicrohttpd
+diff --git a/environment-dev-mac.yml b/environment-dev-mac.yml
+index 461ece673..21531ec76 100644
+--- a/environment-dev-mac.yml
++++ b/environment-dev-mac.yml
+@@ -8,7 +8,7 @@ dependencies:
+         - gfortran
+         - glew
+         - glfw
+-        - lark-parser
++        - lark
+         - libclang
+         - libcxx!=20.1.5
+         - libmicrohttpd
+-- 
+2.56.0
+
